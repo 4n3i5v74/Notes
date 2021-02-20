@@ -1,15 +1,8 @@
 # Security Engineering at Google: My Interview Study Notes
 ## By [nolang](https://twitter.com/__nolang)
 
-I am a security engineer at Google and these are the notes from when I was studying for the interviews. This is my first job in security and a lot of people have asked me how I studied. My notes consist mostly of a list of terms and technologies to learn, plus little tidbits that helped me remember certain details. At the end are interview tips I made for myself and that I find myself saying to others looking to interview.
-
-**If you are less confident at coding:** 
-Spend more time writing small scrips and studying features of your preferred language. Coding is essential (even if you don't like it or you don't use it much in your current role). I have a section on coding in this list.
-
-**If you are less confident at security topics:** 
-I recommend doing a lot of reading and whenever you come across a term you are unfamiliar with or couldn't easily explain, then add it to the list. 
-
 ### Contents
+- [README](README.md)
 - [Networking](#networking)
 - [Web application](#web-application)
 - [Infrastructure (Prod / Cloud) Virtualisation](#infrastructure-prod--cloud-virtualisation)
@@ -34,7 +27,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Transport; layer 4 (TCP/UDP).
 	- Network; layer 3 (Routing).
 	- Datalink; layer 2 (Error checking and frame synchronisation).
-	- Physical; layer 1 (bits over fibre).
+	- Physical; layer 1 (Bits over fibre).
 	
 -	Firewalls
 	- Rules to prevent incoming and outgoing connections.
@@ -64,11 +57,12 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Pair MAC address with IP Address for IP connections. 
 
 - DHCP
-	- UDP (67, 68)
-	- Dynamic address allocation (allocated by router). 
+	- UDP (67 - Server, 68 - Client)
+	- Dynamic address allocation (allocated by router).
+	- `DHCPDISCOVER` -> `DHCPOFFER` -> `DHCPREQUEST` -> `DHCPACK`
 
 - Multiplex 
-	- timeshare, statistical share, just useful to know it exists.
+	- Timeshare, statistical share, just useful to know it exists.
 
 - Traceroute 
 	- Usually uses UDP, but might also use ICMP Echo Request or TCP SYN. TTL, or hop-limit.
@@ -105,7 +99,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - SSL/TLS
 	- (443) 
 	- Super important to learn this, includes learning about handshakes, encryption, signing, certificate authorities, trust systems. [A good primer on all these concepts and algorithms](https://english.ncsc.nl/publications/publications/2019/juni/01/it-security-guidelines-for-transport-layer-security-tls) is made available by the Dutch cybersecurity center.
-	- (Various attacks against older versions of SSL/TLS (with catchy names)](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
+	- Various attacks against older versions of SSL/TLS (with catchy names) on [Wikipedia](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS/SSL).
 
 - TCP/UDP
 	- Web traffic, chat, voip, traceroute.
@@ -149,9 +143,9 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Used inside orgs. 
 
 - Service ports
-	-  0 - 1023- reserved for common services - sudo required. 
-	- 1024 - 49151- registered ports used for IANA-registered services. 
-	- 49152 - 65535- dynamic ports that can be used for anything. 
+	- 0 - 1023: Reserved for common services - sudo required. 
+	- 1024 - 49151: Registered ports used for IANA-registered services. 
+	- 49152 - 65535: Dynamic ports that can be used for anything. 
 
 - HTTP Header
 	- | Verb | Path | HTTP version |
@@ -167,7 +161,12 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 
 - HTTP Response Header
 	- HTTP version
-	- Code- 200 OK, 403 forbidden, 404 not found, 500 server, 503 server unavailable, 301 Redirect notice 
+	- Status Codes: 
+		- 1xx: Informational Response
+		- 2xx: Successful
+		- 3xx: Redirection
+		- 4xx: Client Error
+		- 5xx: Server Error
 	- Type of data in response 
 	- Type of encoding
 	- Language 
@@ -248,29 +247,29 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - SSRF 
 	- Server Side Request Forgery.
 
-- Web vuln scanners 
-- SQLmap
-- Malicious redirects
+- Web vuln scanners. 
+- SQLmap.
+- Malicious redirects.
 
 
 # Infrastructure (Prod / Cloud) Virtualisation 
 
-- Hypervisors
-- Hyperjacking
-- Containers
-- Escaping and privilege escalation techniques
-- Site isolation
-- Network connections from VMs / containers 
-- Side-channel attacks 
+- Hypervisors.
+- Hyperjacking.
+- Containers.
+- Escaping and privilege escalation techniques.
+- Site isolation.
+- Network connections from VMs / containers. 
+- Side-channel attacks. 
 - Beyondcorp 
 	- Trusting the host but not the network.
 
 # OS implementation and systems
 
-- Privilege escalation techniques, and prevention
-- Buffer Overflows 
-- Directory traversal (prevention)
-- Remote Code Execution / getting shells
+- Privilege escalation techniques, and prevention.
+- Buffer Overflows.
+- Directory traversal (prevention).
+- Remote Code Execution / getting shells.
 
 - Local databases
 	- Some messaging apps use sqlite for storing messages.
@@ -397,12 +396,13 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 # Malware & Reversing
 
 - Interesting malware
-	- Conficker. 
+	- Conficker.
 	- Morris worm.
 	- Zeus malware.
 	- Stuxnet.
 	- Wannacry.
 	- CookieMiner.
+	- Sunburst.
 
 - Malware features
 	- Various methods of getting remote code execution. 
@@ -666,7 +666,7 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 - Port scanners 
 	- Practice parsing network information.
 
-- botnets
+- Botnets
 	- How would you build ssh botnet.
 
 - Password bruteforcer
@@ -730,4 +730,3 @@ I recommend doing a lot of reading and whenever you come across a term you are u
 	- Doooo theeeeemmm yes they can be annoying to organise but it is *worth it*.
 
 ### Interviewers are potential friends and they want to help you get the job, they are on your side. Let them help you, ask them questions, say everything you know on a topic and *say your thought process out loud*.
-
